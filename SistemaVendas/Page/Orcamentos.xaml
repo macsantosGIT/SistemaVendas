@@ -1,0 +1,182 @@
+﻿<Page x:Class="SistemaVendas.Page.Orcamentos"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SistemaVendas.Page"
+      xmlns:m="clr-namespace:SistemaVendas.Master"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="740"
+      Title="Orcamentos"
+      HorizontalAlignment="Center">
+    <m:Master>
+        <m:Master.Title>Orçamentos</m:Master.Title>
+        <m:Master.Abstract>Cadastro -> Orçamento</m:Master.Abstract>
+        <m:Master.Content>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TabControl Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" Margin="0" VerticalAlignment="Stretch" Height="Auto" Width="Auto">
+            <TabItem Name="tbiCadastro" Header="Cadastro">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="65"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="30"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Row="0" Grid.ColumnSpan="8" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"/>
+                    <Label Name="lblNrOrcamento" Grid.Row="0" Grid.Column="0" Content="Nr. Orçamento" Height="30" Width="90" HorizontalAlignment="Left"/>
+                    <TextBox Name="txtCodOrcamento" Grid.Row="0" Grid.Column="1" Height="30" Width="100" IsReadOnly="True"/>
+                    <Label Name="lblDataEmissao" Grid.Row="0" Grid.Column="5" Content="Data Emissão:" Height="30" Width="90" HorizontalAlignment="Right"/>
+                    <!--<TextBox Name="txtDataEmissao" Grid.Row="0" Grid.Column="6" Height="30" Width="100" HorizontalAlignment="Left" LostFocus="txtDataEmissao_LostFocus"/>-->
+                    <DatePicker Name="dtpDataEmissao" Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Width="130"/>
+                    
+                    <Label Name="lblCodCliente" Grid.Row="1" Grid.Column="0" Content="Código" Height="27" Width="55" HorizontalAlignment="Left"/>
+                    <Label Name="lblCliente" Grid.Row="1" Grid.Column="1" Content="Cliente" Height="27" Width="100" HorizontalAlignment="Left"/>
+                    <Border Grid.Row="2" Grid.ColumnSpan="8" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"/>
+                    <TextBox Name="txtCodCliente" Grid.Row="2" Grid.Column="0" Height="30" Width="60" HorizontalAlignment="Left" LostFocus="txtCodCliente_LostFocus"/>
+                    <Button Name="btnCliente" Grid.Row="2" Grid.Column="0" Content="..." Height="30" Width="30" Margin="64,3,6,2" Click="btnCliente_Click"/>
+                    <TextBox Name="txtCliente" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Height="30" Width="190" HorizontalAlignment="Left"/>
+
+                    <Label Name="lblCodProduto" Grid.Row="3" Grid.Column="0" Content="Código" Height="27" Width="60" HorizontalAlignment="Left"/>
+                    <Label Name="lblProduto" Grid.Row="3" Grid.Column="1" Content="Produto" Height="27" Width="60" HorizontalAlignment="Left"/>
+                    <Label Name="lblQuantidade" Grid.Row="3" Grid.Column="3" Content="Quantidade" Height="27" Width="100" HorizontalAlignment="Left"/>
+                    <Label Name="lblDesconto" Grid.Row="3" Grid.Column="4" Content="Desconto" Height="27" Width="100" HorizontalAlignment="Left"/>
+                    <Label Name="lblValorUnit" Grid.Row="3" Grid.Column="5" Content="Valor Unit." Height="27" Width="100" HorizontalAlignment="Left"/>
+                    <Label Name="lblSubTotal" Grid.Row="3" Grid.Column="6" Content="Sub-Total" Height="27" Width="100" HorizontalAlignment="Left"/>
+
+                    <Border Grid.Row="4" Grid.ColumnSpan="8" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"/>
+                    <TextBox Name="txtCodProduto" Grid.Row="4" Grid.Column="0" Height="30" Width="60" HorizontalAlignment="Left" LostFocus="txtCodProduto_LostFocus"/>
+                    <Button Name="btnProduto" Grid.Row="4" Grid.Column="0" Content="..." Height="30" Width="30" Margin="64,3,6,2" Click="btnProduto_Click"/>
+                    <TextBox Name="txtProduto" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Height="30" Width="190" HorizontalAlignment="Left"/>
+                    <TextBox Name="txtQuantidade" Grid.Row="4" Grid.Column="3" Height="30" Width="90" HorizontalAlignment="Left" LostFocus="txtQuantidade_LostFocus"/>
+                    <TextBox Name="txtDesconto" Grid.Row="4" Grid.Column="4" Height="30" Width="90" HorizontalAlignment="Left" LostFocus="txtDesconto_LostFocus"/>
+                    <TextBox Name="txtValorUnit" Grid.Row="4" Grid.Column="5" Height="30" Width="90" HorizontalAlignment="Left" LostFocus="txtValorUnit_LostFocus"/>
+                    <TextBox Name="txtSubTotal" Grid.Row="4" Grid.Column="6" Height="30" Width="90" HorizontalAlignment="Left" LostFocus="txtSubTotal_LostFocus" IsReadOnly="True"/>
+                    <Button Name="btnItem" Grid.Row="4" Grid.Column="7" Height="30" Width="30" Click="btnItem_Click">
+                        <Image Source="../Image/seta_abaixo_16x16.png"></Image>
+                    </Button>
+
+                    <Border Grid.Row="5" Grid.ColumnSpan="8" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"/>
+                    <DataGrid Name="dtgItens" Grid.Row="5" Grid.ColumnSpan="8" AutoGenerateColumns="False" Height="300" SelectedCellsChanged="dtgItens_SelectedCellsChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=Produto.ProdudoId}" Header="Código" Width="80" IsReadOnly="True" Visibility="Hidden"/>
+                            <DataGridTextColumn Binding="{Binding Path=OrcamentoDetalheItem}" Header="Ítem" Width="80" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=Produto.ProdutoNome}" Header="Descrição" Width="180" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=OrcamentoDetalheQtd}" Header="Quantidade" Width="90" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=Produto.ProdutoUnidade}" Header="Unid." Width="50" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=OrcamentoDetalhePrecoUnit}" Header="Valor Unitário" Width="100" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=OrcamentoDetalhePctDesc}" Header="% Desconto" Width="80" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=OrcamentoDetalhePrecoTotal}" Header="Valor Total" Width="90" IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Border Grid.Row="6" Grid.ColumnSpan="8" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"/>
+                    <Label Name="lblDescontoTotal" Grid.Row="6" Grid.Column="0" Content="Desconto" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox Name="txtValDescontoTotal" Grid.Row="6" Grid.Column="6" Text="R$ 00,00" HorizontalAlignment="Right" VerticalAlignment="Center" IsReadOnly="True"/>
+                    <Border Grid.Row="7" Grid.ColumnSpan="8" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"/>
+                    <Label Name="lblTotalParcial" Grid.Row="7" Grid.ColumnSpan="2" Content="Total Parcial (sem frete)" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox Name="txtValTotalParcial" Grid.Row="7" Grid.Column="6" Text="R$ 0.000,00" HorizontalAlignment="Right" VerticalAlignment="Center" IsReadOnly="True"/>
+                    <Border Grid.Row="8" Grid.ColumnSpan="8" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"/>
+                    <Label Name="lblFrete" Grid.Row="8" Grid.Column="0" Content="Custo de transporte (frete)" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox Name="txtFrete" Grid.Row="8" Grid.Column="6" Height="30" Width="100" HorizontalAlignment="Right" VerticalAlignment="Center" LostFocus="txtFrete_LostFocus"/>
+                    <Label Name="lblTotal" Grid.Row="9" Grid.Column="0" Content="Total Orçamento" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox Name="txtValTotal" Grid.Row="9" Grid.Column="6" Text="R$ 00,00" HorizontalAlignment="Right" VerticalAlignment="Center" IsReadOnly="True"/>
+
+
+                    <Border Grid.Row="10" Grid.ColumnSpan="8" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"/>
+                    <Label Name="lblFormaPagamento" Grid.Row="10" Grid.ColumnSpan="2" Content="Forma de Pagamento:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBox Name="txtFormaPagamento" Grid.Row="10" Grid.Column="2" Height="30" Width="80" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                    <Border Grid.Row="11" Grid.ColumnSpan="8" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"/>
+                    <Label Name="lblObservacao" Grid.Row="11" Grid.Column="0" Content="Observação:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox Name="txtObservacao" Grid.Row="11" Grid.ColumnSpan="6" Height="63" Width="600" HorizontalAlignment="Left" VerticalAlignment="Stretch" MaxLength="500" TextWrapping="WrapWithOverflow" Margin="0,1" Grid.Column="1"/>
+
+                    <Border Grid.Row="12" Grid.ColumnSpan="8" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"/>
+                    <Label Name="lblVendedor" Grid.Row="12" Grid.Column="0" Content="Vendedor: " HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <ComboBox Name="cmbVendedor" Grid.Row="12" Grid.ColumnSpan="3" Height="30" Width="200" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,3,0,2" Grid.Column="1" SelectedValuePath="VendedorId" DisplayMemberPath="VendedorNome"/>
+                    <Label Name="lblFornecedor" Grid.Row="12" Grid.Column="3" Content="Fornecedor:" HorizontalAlignment="Right"  VerticalAlignment="Center"/>
+                    <ComboBox Name="cmbFornecedor" Grid.Row="12" Grid.Column="4" Grid.ColumnSpan="3" Height="30" Width="200" HorizontalAlignment="Left" VerticalAlignment="Center" SelectedValuePath="FornecedorId" DisplayMemberPath="FornecedorNome"/>
+                    
+                    <Border Grid.Row="13" Grid.ColumnSpan="8" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"/>
+                    <Label Name="lblStatus" Grid.Row="13" Grid.Column="0" Content="Status: " HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <ComboBox Name="cmbStatus" Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="3" Height="30" Width="200" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <ComboBoxItem IsSelected="True">Orçamento</ComboBoxItem>
+                        <ComboBoxItem>Emitido</ComboBoxItem>
+                        <ComboBoxItem>Cancelado</ComboBoxItem>
+                    </ComboBox>
+                    <Label Name="lblDataEntrega" Grid.Row="13" Grid.Column="3" Content="Data Entrega:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <DatePicker Name="dtpDataEntrega" Grid.Row="13" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150"/>
+
+                    <DockPanel Grid.Row="14" Grid.ColumnSpan="8" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Button Name="incluir" Content="Incluir" Height="30" Width="60" HorizontalAlignment="Left" Margin="5" Style="{StaticResource BaseButtonStyle}" Click="incluir_Click"/>
+                        <Button Name="excluir" Content="Excluir" Height="30" Width="60" HorizontalAlignment="Left" Margin="5" Style="{StaticResource BaseButtonStyle}" Click="excluir_Click"/>
+                        <Button Name="atualizar" Content="Atualizar" Height="30" Width="60" HorizontalAlignment="Left" Margin="5" Style="{StaticResource BaseButtonStyle}" Click="atualizar_Click"/>
+                        <Button Name="cancelar" Content="Limpar" Height="30" Width="60" HorizontalAlignment="Left" Margin="5" Style="{StaticResource BaseButtonStyle}" Click="cancelar_Click"/>
+                        <!--<Button Name="gerarPedido" Content="Gerar Pedido" Height="30" Width="100" HorizontalAlignment="Left" Margin="5" Style="{StaticResource BaseButtonStyle}" Click="pedido_Click"/>-->
+                    </DockPanel>
+
+                </Grid>
+            </TabItem>
+            <TabItem Name="tbiPesquisa" Header="Pesquisa">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="600"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="300"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Row="0" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                    <Label Name="lblNrOrcamentoPesq" Grid.Row="0" Grid.Column="0" Content="Nr. Orçamento:" Height="30" Width="90" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtNrOrcamentoPesq" Grid.Row="0" Grid.Column="1" Height="30" TextWrapping="Wrap"  Width="200" HorizontalAlignment="Left" MaxLength="100" TextChanged="txtPesquisa_TextChanged"/>
+                    <Label Name="lblClientePesq" Grid.Row="0" Grid.Column="2" Content="Nome Cliente:" Height="30" Width="85" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtClientePesq" Grid.Row="0" Grid.Column="3" Height="30" Width="250" HorizontalAlignment="Left" MaxLength="100" TextChanged="txtPesquisa_TextChanged"/>
+                    <DataGrid Name="dtgOrcamentos" Grid.Row="1" Grid.ColumnSpan="4" AutoGenerateColumns="False" Height="590" Margin="0,5,36,5" SelectedCellsChanged="dtgOrcamentos_SelectedCellsChanged" VerticalScrollBarVisibility="Auto">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=OrcamentoId}" Header="Nr.Orçamento" Width="100" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=OrcamentoClienteNome}" Header="Cliente" Width="150" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=OrcamentoValorTotal}" Header="Valor Total" Width="80" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=Orcamentodata}" Header="Data Emissão" Width="80" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=OrcamentoFormaPagamento}" Header="Forma de Pagamento" Width="150" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=OrcamentoStatus}" Header="Status" Width="100" IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+        </m:Master.Content>
+    </m:Master>
+</Page>

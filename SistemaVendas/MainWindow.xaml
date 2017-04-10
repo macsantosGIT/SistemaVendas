@@ -1,0 +1,64 @@
+﻿<Window x:Class="SistemaVendas.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sistema de Venda - Comércio de Peças" 
+        Width="1024"
+        Height="900"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        >
+    <Window.CommandBindings>
+        <CommandBinding Command="NavigationCommands.GoToPage" Executed="GoToPageExecuteHandler" CanExecute="GoToPageCanExecuteHandler" />
+    </Window.CommandBindings>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!-- Logo da empresa -->
+        <Grid Height="65" Background="LightGray" Grid.Row="0" Grid.Column="0">
+            <DockPanel>
+
+                <Button Name="btnLogOff" Content="Logoff" Height="25" Width="52" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Click="btnLogOff_Click" Style="{StaticResource BaseButtonStyle}" DockPanel.Dock="Right" TabIndex="4"/>
+                <Button Name="btnLogin" Content="Login" Height="25" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Click="btnLogin_Click" Style="{StaticResource BaseButtonStyle}" DockPanel.Dock="Right" TabIndex="3"/>
+                <PasswordBox Name="txtSenha" Width="100" Height="25" HorizontalAlignment="Right"  VerticalAlignment="Center" DockPanel.Dock="Right" TabIndex="2"/>
+                <Label Name="lblSenha" Width="45" Height="25" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Senha:" DockPanel.Dock="Right"/>
+                <TextBox Name="txtLogin" Width="120" Height="25" HorizontalAlignment="Right" VerticalAlignment="Center" TextWrapping="Wrap"  Margin="2" DockPanel.Dock="Right" TabIndex="1"/>
+                <Label Name="LblLogin" Width="52" Height="25" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Usuário:" DockPanel.Dock="Right"/>
+                
+            </DockPanel>
+        </Grid>
+        <Menu Name="menuPrincipal" Grid.Column="0" Grid.Row="1" FontSize="16">
+            <MenuItem Name="menuHome" Header="Home" Command="NavigationCommands.GoToPage" CommandParameter="Page/Home.xaml" CommandTarget="{Binding ElementName=frmContent}"></MenuItem>
+            <MenuItem Name="menuCadastro" Header="Cadastro">
+                <MenuItem Name="menuCliente" Header="Clientes" Command="NavigationCommands.GoToPage" CommandParameter="Page/Clientes.xaml" CommandTarget="{Binding ElementName=frmContent}"/>
+                <MenuItem Name="menuFornecedor" Header="Fornecedores" Command="NavigationCommands.GoToPage" CommandParameter="Page/Fornecedores.xaml" CommandTarget="{Binding ElementName=frmContent}"/>
+                <MenuItem Name="menuOrcamento" Header="Orçamento" Command="NavigationCommands.GoToPage" CommandParameter="Page/Orcamentos.xaml" CommandTarget="{Binding ElementName=frmContent}"/>
+                <!--<MenuItem Name="menuVenda" Header="Vendas" Command="NavigationCommands.GoToPage" CommandParameter="Page/Pedidos.xaml" CommandTarget="{Binding ElementName=frmContent}"/>-->
+            </MenuItem>
+            <MenuItem Name="menuManutencao" Header="Manutenção">
+                <MenuItem Name="menuCategoria" Header="Categorias" Command="NavigationCommands.GoToPage" CommandParameter="Page/Categorias.xaml" CommandTarget="{Binding ElementName=frmContent}"/>
+                <MenuItem Name="menuProduto" Header="Produtos" Command="NavigationCommands.GoToPage" CommandParameter="Page/Produtos.xaml" CommandTarget="{Binding ElementName=frmContent}"/>
+                <MenuItem Name="menuVendedor" Header="Vendedores" Command="NavigationCommands.GoToPage" CommandParameter="Page/Vendedores.xaml" CommandTarget="{Binding ElementName=frmContent}"/>
+                <MenuItem Name="menuTransportadora" Header="Transportadoras" Command="NavigationCommands.GoToPage" CommandParameter="Page/Transportadores.xaml" CommandTarget="{Binding ElementName=frmContent}"/>
+                <!-- cirar tabControl para cadastro de area de atuacao das transportadoras -->
+                <MenuItem Name="menuUf" Header="UF" Command="NavigationCommands.GoToPage" CommandParameter="Page/UFs.xaml" CommandTarget="{Binding ElementName=frmContent}"/>
+                <MenuItem Name="menuCidade" Header="Cidades" Command="NavigationCommands.GoToPage" CommandParameter="Page/Cidades.xaml" CommandTarget="{Binding ElementName=frmContent}"/>
+                <MenuItem Name="menuUsuario" Header="Usuários" Command="NavigationCommands.GoToPage" CommandParameter="Page/Usuarios.xaml" CommandTarget="{Binding ElementName=frmContent}"/>
+                <MenuItem Name="menuEmpresa" Header="Empresa" Command="NavigationCommands.GoToPage" CommandParameter="Page/Compania.xaml" CommandTarget="{Binding ElementName=frmContent}"/>
+            </MenuItem>
+            <MenuItem Name="menuRealtorio" Header="Relatórios">
+                <MenuItem Name="relOrcamento" Header="Orçamentos"/>
+                <MenuItem Name="relVenda" Header="Vendas"/>
+            </MenuItem>
+            <MenuItem Name="menuSair" Header="Sair" Click="menuSair_Click"></MenuItem>            
+        </Menu>
+
+        <Frame ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" NavigationUIVisibility="Hidden"  Name="frmContent" Grid.Column="0" Grid.Row="2"/> 
+    </Grid>
+</Window>

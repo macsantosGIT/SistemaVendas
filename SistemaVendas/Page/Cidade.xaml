@@ -1,0 +1,62 @@
+﻿<Page x:Class="SistemaVendas.Page.Cidade"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SistemaVendas.Page"
+      xmlns:m="clr-namespace:SistemaVendas.Master"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="Cidade">
+    <m:Master>
+        <m:Master.Title>Cadastro de Cidades</m:Master.Title>
+        <m:Master.Abstract>Mantenção -> Cidade</m:Master.Abstract>
+        <m:Master.Content>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <!--Nome e codigo(oculto)-->
+                    <RowDefinition Height="35"/>
+                    <!--UF-->
+                    <RowDefinition Height="40"/>
+                    <!--Botoes-->
+                    <RowDefinition Height="105"/>
+                    <!--Grid-->
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="200" />
+                </Grid.ColumnDefinitions>
+                <Border Grid.Row="0" Grid.ColumnSpan="2" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                <Label Name="lblNome" Grid.Row="0" Grid.Column="0" Content="Nome: " Height="30" Width="60" HorizontalAlignment="Right"/>
+                <TextBox Name="txtNome" Grid.Row="0" Grid.Column="1" Height="30" TextWrapping="Wrap"  Width="180" HorizontalAlignment="Left" MaxLength="50"/>
+                <TextBox Name="txtCodigo" Grid.Row="0" Grid.Column="1" Height="30" Width="20" VerticalAlignment="Stretch" Visibility="Hidden" IsReadOnly="True" />
+                <Border Grid.Row="1" Grid.ColumnSpan="2" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                <Label Name="lblEstado" Grid.Row="1" Grid.Column="0" Content="Estado:" Height="30" Width="65" HorizontalAlignment="Right"></Label>
+                <ComboBox Name="cmbEstado" Grid.Row="1" Grid.Column="1" Height="30" Width="60" HorizontalAlignment="Left" VerticalAlignment="Stretch"/>
+                <Border Grid.Row="2" Grid.ColumnSpan="2" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                <DockPanel Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button Name="incluir" Content="Incluir" Height="30" Width="60" HorizontalAlignment="Left" Margin="5" />
+                    <!-- Click="incluir_Click"-->
+                    <Button Name="excluir" Content="Excluir" Height="30" Width="60" HorizontalAlignment="Left" Margin="5" />
+                    <!--Click="excluir_Click"-->
+                    <Button Name="atualizar" Content="Atualizar" Height="30" Width="60" HorizontalAlignment="Left" Margin="5" />
+                    <!--Click="atualizar_Click"-->
+                    <Button Name="cancelar" Content="Limpar" Height="30" Width="60" HorizontalAlignment="Left" Margin="5" />
+                    <!---Click="cancelar_Click"-->
+                </DockPanel>
+                <DataGrid Name="dtgCategorias" AutoGenerateColumns="False" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" ItemsSource="{Binding}" Width="250" Height="134" Margin="25,10,25,-38">
+                    <!--Implementar o metodo abaixo-->
+                    <!--SelectedCellsChanged="dtgCategorias_SelectedCellsChanged"-->
+
+                    <!--AutoGenerateColumns=true - gera colunas automaticamento para o grid tem que arrumar select-->
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Path=Codigo}" Header="Codigo" Visibility="Hidden"/>
+                        <DataGridTextColumn Binding="{Binding Path=Nome}" Header="Nome" Width="100" IsReadOnly="True" />
+                        <DataGridTextColumn Binding="{Binding Path=Estado}" Header="Estado" Width="70" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </m:Master.Content>
+    </m:Master>
+</Page>

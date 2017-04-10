@@ -1,0 +1,134 @@
+﻿<Page x:Class="SistemaVendas.Page.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:m="clr-namespace:SistemaVendas.Master"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+	Title="Home"
+      HorizontalAlignment="Center">
+    <m:Master>
+        <m:Master.Title>Home</m:Master.Title>
+        <m:Master.Abstract>Demonstrativo de Vendas e Orçamentos</m:Master.Abstract>
+        <m:Master.Content>
+    <Grid>
+        <TabControl Name="tbHome" Height="600" FontSize="16">
+            <TabItem Name="tbiVendas" Header="Vendas">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="380"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="250"/>
+                            <ColumnDefinition Width="250"/>
+                            <ColumnDefinition Width="250"/>
+                        </Grid.ColumnDefinitions>
+                        <!-- Definir Labels para Totalizador de vendas do mes por exemplo -->
+                        <Border Grid.Row="0" Grid.ColumnSpan="3" BorderThickness="0 0 0 1" BorderBrush="CadetBlue" Margin="0,0,-41,0"/>
+                        <Label Grid.Row="0" Grid.Column="0" Content="Total de Vendas no Período de:"/>
+                        <Label Name="lblIntervaloDias" Content="00/00/000 à 00/00/000" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+                        <Border Grid.Row="1" Grid.ColumnSpan="3" BorderThickness="0 0 0 1" BorderBrush="CadetBlue" Margin="0,0,-41,0"/>
+                        <Label Name="lblQantidadeTotalP" Grid.Row="1" Grid.Column="0" Content="Quantidade Total:" />
+                        <Label Name="lblValorTotalP" Grid.Row="1" Grid.Column="1" Content="Valor Total:"/>
+                        <Label Name="lblValorMedioP" Grid.Row="1" Grid.Column="2" Content="Valor Médio:"/>
+
+                        <Border Grid.Row="2" Grid.ColumnSpan="3" BorderThickness="0 0 0 1" BorderBrush="CadetBlue" Margin="0,0,-41,0"/>
+                        <Label Grid.Row="2" Grid.Column="0" Content="Total de Vendas no Mês:"/>
+
+                        <Border Grid.Row="3" Grid.ColumnSpan="3" BorderThickness="0 0 0 1" BorderBrush="CadetBlue" Margin="0,0,-41,0"/>
+                        <Label Name="lblQantidadeTotalM" Grid.Row="3" Grid.Column="0" Content="Quantidade Total:" />
+                        <Label Name="lblValorTotalM" Grid.Row="3" Grid.Column="1" Content="Valor Total:"/>
+                        <Label Name="lblValorMedioM" Grid.Row="3" Grid.Column="2" Content="Valor Médio:"/>
+
+                        <Border Grid.Row="4" Grid.ColumnSpan="3" BorderThickness="0 0 0 1" BorderBrush="CadetBlue" Margin="0,0,-41,0"/>
+                        <Label Grid.Row="4" Grid.Column="0" Content="Total de Vendas no Semestre:"/>
+
+                        <Border Grid.Row="5" Grid.ColumnSpan="3" BorderThickness="0 0 0 1" BorderBrush="CadetBlue" Margin="0,0,-41,0"/>
+                        <Label Name="lblQantidadeTotalS" Grid.Row="5" Grid.Column="0" Content="Quantidade Total:" />
+                        <Label Name="lblValorTotalS" Grid.Row="5" Grid.Column="1" Content="Valor Total:"/>
+                        <Label Name="lblValorMedioS" Grid.Row="5" Grid.Column="2" Content="Valor Médio:"/>
+
+                        <!-- Criar grid com as vendas e linhas coloridas alternadas, na selecao da linha mostrar userControl com detalhe da venda-->
+                        <DataGrid Name="dtgVendas" Grid.Row="6" Grid.ColumnSpan="3" AutoGenerateColumns="False" Height="375" VerticalScrollBarVisibility="Auto" Margin="0,3,-41,3" SelectedCellsChanged="dtgVendas_SelectedCellsChanged">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Path=PedidoId}" Header="Nr.Orçamento" Width="120" IsReadOnly="True"/>
+                                <DataGridTextColumn Binding="{Binding Path=PedidoClienteNome}" Header="Cliente" Width="150" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding Path=PedidoValorTotal}" Header="Valor Total" Width="100" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding Path=PedidoData}" Header="Data Emissão" Width="120" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding Path=PedidoFormaPagamento}" Header="Forma de Pagamento" Width="170" IsReadOnly="True" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Name="tbiOrcamentos" Header="Orçamentos">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="380"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="300"/>
+                            <ColumnDefinition Width="225"/>
+                            <ColumnDefinition Width="225"/>
+                        </Grid.ColumnDefinitions>
+                        <!-- Definir Labels para Totalizador de orçamentos do mes por exemplo -->
+                        <Border Grid.Row="0" Grid.ColumnSpan="3" BorderThickness="0 0 0 1" BorderBrush="CadetBlue" Margin="0,0,-41,0"/>
+                        <Label Grid.Row="0" Grid.Column="0" Content="Total de Orçamentos no Período de:"/>
+                        <Label Name="lblIntervaloDiasO" Content="00/00/000 à 00/00/000" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+                        <Border Grid.Row="1" Grid.ColumnSpan="3" BorderThickness="0 0 0 1" BorderBrush="CadetBlue" Margin="0,0,-41,0"/>
+                        <Label Name="lblQantidadeTotalPO" Grid.Row="1" Grid.Column="0" Content="Quantidade Total:" />
+                        <Label Name="lblValorTotalPO" Grid.Row="1" Grid.Column="1" Content="Valor Total:"/>
+                        <Label Name="lblValorMedioPO" Grid.Row="1" Grid.Column="2" Content="Valor Médio:"/>
+
+                        <Border Grid.Row="2" Grid.ColumnSpan="3" BorderThickness="0 0 0 1" BorderBrush="CadetBlue" Margin="0,0,-41,0"/>
+                        <Label Grid.Row="2" Grid.Column="0" Content="Total de Orçamentos no Mês:"/>
+
+                        <Border Grid.Row="3" Grid.ColumnSpan="3" BorderThickness="0 0 0 1" BorderBrush="CadetBlue" Margin="0,0,-41,0"/>
+                        <Label Name="lblQantidadeTotalMO" Grid.Row="3" Grid.Column="0" Content="Quantidade Total:" />
+                        <Label Name="lblValorTotalMO" Grid.Row="3" Grid.Column="1" Content="Valor Total:"/>
+                        <Label Name="lblValorMedioMO" Grid.Row="3" Grid.Column="2" Content="Valor Médio:"/>
+
+                        <Border Grid.Row="4" Grid.ColumnSpan="3" BorderThickness="0 0 0 1" BorderBrush="CadetBlue" Margin="0,0,-41,0"/>
+                        <Label Grid.Row="4" Grid.Column="0" Content="Total de Orçamentos no Semestre:"/>
+
+                        <Border Grid.Row="5" Grid.ColumnSpan="3" BorderThickness="0 0 0 1" BorderBrush="CadetBlue" Margin="0,0,-41,0"/>
+                        <Label Name="lblQantidadeTotalSO" Grid.Row="5" Grid.Column="0" Content="Quantidade Total:" />
+                        <Label Name="lblValorTotalSO" Grid.Row="5" Grid.Column="1" Content="Valor Total:"/>
+                        <Label Name="lblValorMedioSO" Grid.Row="5" Grid.Column="2" Content="Valor Médio:"/>
+
+                        <!-- Criar grid com as orçamentos e linhas coloridas alternadas, na selecao da linha mostrar userControl com detalhe da venda-->
+                        <DataGrid Name="dtgOrcamentos" Grid.Row="6" Grid.ColumnSpan="3" AutoGenerateColumns="False" Height="375" VerticalScrollBarVisibility="Auto" Margin="0,3,-41,3" SelectedCellsChanged="dtgOrcamentos_SelectedCellsChanged">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Path=OrcamentoId}" Header="Nr.Orçamento" Width="120" IsReadOnly="True"/>
+                                <DataGridTextColumn Binding="{Binding Path=OrcamentoClienteNome}" Header="Cliente" Width="150" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding Path=OrcamentoValorTotal}" Header="Valor Total" Width="100" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding Path=OrcamentoData}" Header="Data Emissão" Width="120" IsReadOnly="True" />
+                                <DataGridTextColumn Binding="{Binding Path=OrcamentoFormaPagamento}" Header="Forma de Pagamento" Width="170" IsReadOnly="True" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+    </Grid>
+        </m:Master.Content>
+    </m:Master>
+</Page>

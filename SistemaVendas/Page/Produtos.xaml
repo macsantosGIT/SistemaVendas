@@ -1,0 +1,147 @@
+﻿<Page x:Class="SistemaVendas.Page.Produtos"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:m="clr-namespace:SistemaVendas.Master"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="820"
+	Title="Produto"
+      HorizontalAlignment="Center">
+    <m:Master>
+        <m:Master.Title>Cadastro de Produtos</m:Master.Title>
+        <m:Master.Abstract>Manutenção -> Protudo</m:Master.Abstract>
+        <m:Master.Content>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TabControl Name="tbcProduto" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" Margin="0" VerticalAlignment="Stretch" Height="Auto" Width="Auto">
+            <TabItem Name="tbiCadastro" Header="Cadastro">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="85"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="300"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Row="0" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                    <Label Name="lblNome" Grid.Row="0" Grid.Column="0" Content="Nome:" Height="30" Width="60" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtNome" Grid.Row="0" Grid.Column="1" Height="30" Width="250" TextWrapping="Wrap" HorizontalAlignment="Left" MaxLength="50"/>
+                    <TextBox Name="txtCodigo" Grid.Row="0" Grid.Column="1" Height="30" Width="20" VerticalAlignment="Stretch" Visibility="Hidden" IsReadOnly="True" />
+                    <Label Name="lblCodOrigem" Grid.Row="0" Grid.Column="2" Content="Código Origem: " Height="30" Width="100" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtCodOrigem" Grid.Row="0" Grid.Column="3" Height="30" Width="150" TextWrapping="Wrap" HorizontalAlignment="Left" MaxLength="50" />
+
+                    <Border Grid.Row="1" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                    <Label Name="lblFornecedor" Grid.Row="1" Grid.Column="0" Content="Fornecedor:" Height="30" Width="85" HorizontalAlignment="Right"/>
+                    <ComboBox HorizontalAlignment="Left" Name="cmbFornecedor" Grid.Row="1" Grid.Column="1" Height="30" Width="250" SelectedValuePath="FornecedorId" DisplayMemberPath="FornecedorNomeFantasia"/>
+                    <Label Name="lblCategoria" Grid.Row="1" Grid.Column="2" Content="Categoria:" Height="30" Width="75" HorizontalAlignment="Right"/>
+                    <ComboBox Name="cmbCategoria" Grid.Row="1" Grid.Column="3" Height="30" Width="150" HorizontalAlignment="Left" VerticalAlignment="Stretch" SelectedValuePath="CategoriaId" DisplayMemberPath="CategoriaNome"/>
+
+                    <Border Grid.Row="2" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                    <Label Name="lblUnidade" Grid.Row="2" Grid.Column="0" Content="Unidade:" Height="30" Width="70" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtUnidade" Grid.Row="2" Grid.Column="1" Height="30" TextWrapping="Wrap" Width="100" HorizontalAlignment="Left" MaxLength="5"/>
+                    <Label Name="lblIpi" Grid.Row="2" Grid.Column="2" Content="IPI:" Height="30" Width="40" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtIpi" Grid.Row="2" Grid.Column="3" Height="30" TextWrapping="Wrap" Width="100" HorizontalAlignment="Left" MaxLength="30" TextAlignment="Right" LostFocus="txtIpi_LostFocus" />
+
+                    <Border Grid.Row="3" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                    <Label Name="lblSubsTributaria" Grid.Row="3" Grid.Column="0" Content="Subs. Tributaria:" Height="30" Width="105" HorizontalAlignment="Right" />
+                    <TextBox Name="txtSubsTributaria" Grid.Row="3" Grid.Column="1" Height="30" TextWrapping="Wrap" Width="100" HorizontalAlignment="Left" MaxLength="30" TextAlignment="Right" LostFocus="txtSubsTributaria_LostFocus"/>
+                    <Label Name="lblPrecoCompra" Grid.Row="3" Grid.Column="2" Content="Preço Compra:" Height="30" Width="100" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtPrecoCompra" Grid.Row="3" Grid.Column="3" Height="30" TextWrapping="Wrap" Width="100" HorizontalAlignment="Left" MaxLength="30" TextAlignment="Right" LostFocus="txtPrecoCompra_LostFocus"/>
+
+                    <Border Grid.Row="4" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                    <Label Name="lblPercVenda" Grid.Row="4" Grid.Column="0" Content="Percentual Venda:" Height="30" Width="110" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtPercVenda" Grid.Row="4" Grid.Column="1" Height="30" TextWrapping="Wrap" Width="100" HorizontalAlignment="Left" MaxLength="30" TextAlignment="Right" LostFocus="txtPercVenda_LostFocus"/>
+                    <Label Name="lblPercentual" Grid.Row="4" Grid.Column="1" Content="%" Height="30" HorizontalAlignment="Left" Margin="104,2,0,3" />
+                    <Label Name="lblPrecoSugerido" Grid.Row="4" Grid.Column="2" Content="Preço Sugerido:" Height="30" Width="105" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtPrecoSugerido" Grid.Row="4" Grid.Column="3" Height="30" TextWrapping="Wrap" Width="100" HorizontalAlignment="Left" MaxLength="30" TextAlignment="Right" LostFocus="txtPrecoSugerido_LostFocus"/>
+
+                    <Border Grid.Row="5" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                    <Label Name="lblMoeda" Grid.Row="5" Grid.Column="0" Content="Moeda:" Height="30" Width="60" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtMoeda" Grid.Row="5" Grid.Column="1" Height="30" TextWrapping="Wrap" Width="100" HorizontalAlignment="Left" MaxLength="30"/>
+                    <Label Name="lblEstoque" Grid.Row="5" Grid.Column="2" Content="Estoque:" Height="30" Width="65" HorizontalAlignment="Right"/>
+                    <CheckBox Name="chkEstoque" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                    <Border Grid.Row="6" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                    <Label Name="lblQtdEstoque" Grid.Row="6" Grid.Column="0" Content="Qtd. Estoque:" Height="30" Width="90" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtQtdEstoque" Grid.Row="6" Grid.Column="1" Height="30" TextWrapping="Wrap" Width="100" HorizontalAlignment="Left" MaxLength="30" TextAlignment="Right" LostFocus="txtQtdEstoque_LostFocus"/>
+                    <Label Name="lblQtdMinEstoque" Grid.Row="6" Grid.Column="2" Content="Q. Min. Estoque:" Height="30" Width="105" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtQtdMinEstoque" Grid.Row="6" Grid.Column="3" Height="30" TextWrapping="Wrap" Width="100" HorizontalAlignment="Left" MaxLength="30" TextAlignment="Right" LostFocus="txtQtdMinEstoque_LostFocus"/>
+
+                    <Border Grid.Row="7" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                    <Label Name="lblObservacao" Grid.Row="7" Grid.Column="0" Content="Observacao:" Height="30" Width="90" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtObservacao" Grid.Row="7" Grid.Column="1" Height="80" Width="250" HorizontalAlignment="Left" VerticalAlignment="Stretch" MaxLength="500" TextWrapping="WrapWithOverflow"/>
+                    <Label Name="lblImagem" Grid.Row="7" Grid.Column="2" Content="Imagem:" Height="30" Width="65" HorizontalAlignment="Right"/>
+                    <Image Name="imgImagem" Grid.Row="7" Grid.Column="3" Height="80" Width="150" HorizontalAlignment="Left" VerticalAlignment="Stretch" />
+                    <Button Name="btnCarregarImagem" Grid.Row="7" Grid.Column="3" Height="70" Width="80" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" Style="{StaticResource BaseButtonStyle}" Click="btnCarregarImagem_Click">
+                        <Button.Content>
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Text="Carregar" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Imagem" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <DockPanel Grid.Row="8" Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Button Name="incluir" Content="Incluir" Height="30" Width="60" HorizontalAlignment="Left" Margin="5" Style="{StaticResource BaseButtonStyle}" Click="incluir_Click"/>
+                        <Button Name="excluir" Content="Excluir" Height="30" Width="60" HorizontalAlignment="Left" Margin="5" Style="{StaticResource BaseButtonStyle}" Click="excluir_Click"/>
+                        <Button Name="atualizar" Content="Atualizar" Height="30" Width="60" HorizontalAlignment="Left" Margin="5" Style="{StaticResource BaseButtonStyle}" Click="atualizar_Click"/>
+                        <Button Name="cancelar" Content="Limpar" Height="30" Width="60" HorizontalAlignment="Left" Margin="5" Style="{StaticResource BaseButtonStyle}" Click="cancelar_Click"/>
+                    </DockPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Name="tbiPesquisa" Header="Pesquisa">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <!--Nome-->
+                        <RowDefinition Height="313"/>
+                        <!--Nome-->
+                        <!--
+                        <RowDefinition Height="22"/>
+                        -->
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="300"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Row="0" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                    <Label Name="lblNomeProduto" Grid.Row="0" Grid.Column="0" Content="Produto:" Width="70" HorizontalAlignment="Right" Margin="0,3"/>
+                    <TextBox Name="txtProduto" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap"  Width="290" HorizontalAlignment="Left" MaxLength="100" TextChanged="txtPesquisa_TextChanged" Margin="0,3"/>
+
+                    <Label Name="lblCategoriaProduto" Grid.Row="0" Grid.Column="2" Content="Categoria:" Width="70" HorizontalAlignment="Right" Margin="0,3"/>
+                    <TextBox Name="txtCategoriaProduto" Grid.Row="0" Grid.Column="3" Width="290" HorizontalAlignment="Left" MaxLength="100" TextChanged="txtPesquisa_TextChanged" Margin="0,3"/>
+
+                    <DataGrid Name="dtgProdutos" Grid.Row="1" Grid.ColumnSpan="4" AutoGenerateColumns="False" SelectedCellsChanged="dtgProdutos_SelectedCellsChanged" Margin="0,0,0,7" Grid.RowSpan="2">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=ProdutoId}" Header="Codigo" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=ProdutoNome}" Header="Nome" Width="100" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=ProdutoUnidade}" Header="Unidade" Width="80" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=ProdutoObservacao}" Header="Observação" Width="120" IsReadOnly="True" />
+                            <DataGridTextColumn Binding="{Binding Path=Categoria.CategoriaNome}" Header="Categoria" Width="100" IsReadOnly="True" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+        </m:Master.Content>
+    </m:Master>
+</Page>

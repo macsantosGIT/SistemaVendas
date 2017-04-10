@@ -1,0 +1,32 @@
+﻿<Window x:Class="SistemaVendas.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sistema de Vendas" Height="200" Width="350"
+        
+                      
+        BorderThickness="0"
+        
+        ResizeMode="CanResizeWithGrip" 
+                      
+        WindowStartupLocation="CenterScreen"
+        >
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Label Name="LblLogin" Grid.Row="0" Grid.Column="0" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Usuário:" Margin="5"/>
+        <TextBox Name="txtLogin" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" Width="150" Height="30"/>
+        <Label Name="lblSenha" Grid.Row="1" Grid.Column="0" Width="60" Height="30" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Senha:" Margin="5"/>
+        <PasswordBox Name="txtSenha" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" Height="30"/>
+        <DockPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Button Name="btnLogin" Content="Login" Height="30" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Click="btnLogin_Click" Style="{StaticResource BaseButtonStyle}"/>
+            <Button Name="btnSair" Content="Sair" Height="30" Width="60" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5" Click="btnSair_Click" Style="{StaticResource BaseButtonStyle}"/>
+        </DockPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,46 @@
+﻿<Page x:Class="SistemaVendas.Page.Categorias"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:m="clr-namespace:SistemaVendas.Master"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="Categorias"
+      HorizontalAlignment="Center">
+    <m:Master>
+        <m:Master.Title>Cadastro de Categorias</m:Master.Title>
+        <m:Master.Abstract>Manutenção -> Categoria</m:Master.Abstract>
+        <m:Master.Content>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="105"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="220" />
+                </Grid.ColumnDefinitions>
+                <Border Grid.Row="0" Grid.ColumnSpan="2" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                <Label Name="lblCategoria" Grid.Row="0" Grid.Column="0" Height="30" Width="70" HorizontalAlignment="Right" Content="Categoria:"/>
+                <TextBox Name="txtCategoria" Grid.Row="0" Grid.Column="1" Height="30" Width="150" HorizontalAlignment="Left" MaxLength="50" TabIndex="1"/>
+                <TextBox Name="txtCodigo" Grid.Row="0" Grid.Column="1" Height="30" Width="20" VerticalAlignment="Stretch" Visibility="Hidden" IsReadOnly="True" />
+                <Border Grid.Row="1" Grid.ColumnSpan="2" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                <DockPanel Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button Name="incluir" Content="Incluir" Height="30" Width="60" HorizontalAlignment="Left" Margin="5" Style="{StaticResource BaseButtonStyle}" Click="incluir_Click" TabIndex="2"/>
+                    <Button Name="excluir" Content="Excluir" Height="30" Width="60" HorizontalAlignment="Left" Margin="5" Style="{StaticResource BaseButtonStyle}" Click="excluir_Click" TabIndex="3"/>
+                    <Button Name="atualizar" Content="Atualizar" Height="30" Width="60" HorizontalAlignment="Left" Margin="5" Style="{StaticResource BaseButtonStyle}" Click="atualizar_Click" TabIndex="4"/>
+                    <Button Name="cancelar" Content="Limpar" Height="30" Width="60" HorizontalAlignment="Left" Margin="5" Style="{StaticResource BaseButtonStyle}" Click="cancelar_Click" TabIndex="5"/>
+                </DockPanel>
+                <DataGrid Name="dtgCategorias" AutoGenerateColumns="False" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" ItemsSource="{Binding}" Width="250" Height="134" Margin="25,16,25,-44" SelectedCellsChanged="dtgCategorias_SelectedCellsChanged">
+                    <!--AutoGenerateColumns=true - gera colunas automaticamento para o grid tem que arrumar select-->
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Path=CategoriaId}" Header="Código" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Path=CategoriaNome}" Header="Categoria" Width="100" IsReadOnly="True" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </m:Master.Content>
+    </m:Master>
+</Page>

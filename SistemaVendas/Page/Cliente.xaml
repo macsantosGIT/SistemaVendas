@@ -1,0 +1,201 @@
+﻿<Page x:Class="SistemaVendas.Page.Cliente"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SistemaVendas.Page"
+      xmlns:m="clr-namespace:SistemaVendas.Master"
+      mc:Ignorable="d" 
+      d:DesignHeight="690" d:DesignWidth="820"
+      Title="Cliente">
+    <m:Master>
+        <m:Master.Title>Cadastro de Clientes</m:Master.Title>
+        <m:Master.Abstract>Cadastro -> Cliente</m:Master.Abstract>
+        <m:Master.Content>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TabControl Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" Margin="0" VerticalAlignment="Stretch" Height="Auto" Width="Auto">
+                    <TabItem Name="tbiCadastro" Header="Cadastro">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="35"/>
+                                <!--Pessoa-->
+                                <RowDefinition Height="35"/>
+                                <!--Nome e codigo(oculto)-->
+                                <RowDefinition Height="35"/>
+                                <!--Nome Fantasia-->
+                                <RowDefinition Height="35"/>
+                                <!--CNPJ/CPF-->
+                                <RowDefinition Height="35"/>
+                                <!--IE/Rg-->
+                                <RowDefinition Height="35"/>
+                                <!--DDD/Telefone-->
+                                <RowDefinition Height="35"/>
+                                <!--DDD/Celular-->
+                                <RowDefinition Height="85"/>
+                                <!--Email-->
+                                <RowDefinition Height="35"/>
+                                <!--CEP-->
+                                <RowDefinition Height="35"/>
+                                <!--Endereco-->
+                                <RowDefinition Height="35"/>
+                                <!--Complemento-->
+                                <RowDefinition Height="35"/>
+                                <!--Bairro-->
+                                <RowDefinition Height="35"/>
+                                <!--Estado-->
+                                <RowDefinition Height="35"/>
+                                <!--Cidade-->
+                                <RowDefinition Height="35"/>
+                                <!--Observacao-->
+                                <RowDefinition Height="40"/>
+                                <!--Botoes-->
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="110"/>
+                                <ColumnDefinition Width="300"/>
+                                <ColumnDefinition Width="110"/>
+                                <ColumnDefinition Width="300"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Row="0" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                            <Label Name="lblPessoa" Grid.Row="0" Grid.Column="0" Content="Tipo Pessoa:" Height="30" Width="90" HorizontalAlignment="Right"/>
+                            <StackPanel Name="rdoTipoPessoa" Orientation="Horizontal"  Grid.Row="0" Grid.Column="1">
+                                <RadioButton GroupName="rdoPessoa" Name="rdoJuridica" Content='Jurídica' Click="rdoTipoPessoa_Click" VerticalAlignment="Center"/>
+                                <RadioButton GroupName="rdoPessoa" Name="rdoFisica" Content="Física" Margin="5" Click="rdoTipoPessoa_Click" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <Border Grid.Row="1" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                            <Label Name="lblRazaoSocial" Grid.Row="1" Grid.Column="0" Content="Razão Social:" Height="30" Width="90" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtRazaoSocial" Grid.Row="1" Grid.Column="1" Height="30" TextWrapping="Wrap"  Width="290" HorizontalAlignment="Left" MaxLength="100"/>
+                            <TextBox Name="txtCodigo" Grid.Row="1" Grid.Column="1" Height="30" Width="20" VerticalAlignment="Stretch" Visibility="Hidden" IsReadOnly="True" />
+                            <Label Name="lblNomeFantasia" Grid.Row="1" Grid.Column="2" Content="Nome Fantasia:" Height="30" Width="105" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtNomeFantasia" Grid.Row="1" Grid.Column="3" Height="30" Width="290" HorizontalAlignment="Left" MaxHeight="100"/>
+                            <Border Grid.Row="2" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                            <Label Name="lblCnpjCpf" Grid.Row="2" Grid.Column="0" Content="CNPJ / CPF:" Height="30" Width="85" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtCnpjCpf" Grid.Row="2" Grid.Column="1" Height="30" Width="180" HorizontalAlignment="Left" MaxHeight="20"/>
+                            <Label Name="lblIeRG" Grid.Row="2" Grid.Column="2" Content="IE / RG:" Height="30" Width="65" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtIeRG" Grid.Row="2" Grid.Column="3" Height="30" Width="180" HorizontalAlignment="Left" MaxHeight="20"/>
+                            <Border Grid.Row="3" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                            <Label Name="lblTelefone" Grid.Row="3" Grid.Column="0" Content="DDD/Telefone:" Height="30" Width="105" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtDDDTelefone" Grid.Row="3" Grid.Column="1" Height="30" Width="30" HorizontalAlignment="Left"/>
+                            <Label Name="lblDivTel" Grid.Row="3" Grid.Column="1" Height="30" Width="20" Content="/" Margin="31,3,249,2"/>
+                            <TextBox Name="txtTelefone" Grid.Row="3" Grid.Column="1" Height="30" Width="120" Margin="48,3,132,2"/>
+                            <Label Name="lblCelular" Grid.Row="3" Grid.Column="2" Content="DDD/Celular:" Height="30" Width="95" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtDDDCelular" Grid.Row="3" Grid.Column="3" Height="30" Width="30" HorizontalAlignment="Left"/>
+                            <Label Name="lblDivCel" Grid.Row="3" Grid.Column="3" Width="20" Content="/" Margin="31,3,249,2"/>
+                            <TextBox Name="txtCelular" Grid.Row="3" Grid.Column="3" Height="30" Width="120" Margin="50,3,130,2"/>
+                            <Border Grid.Row="4" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                            <Label Name="lblEmail" Grid.Row="4" Grid.Column="0" Content="Email:" Height="30" Width="55" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtEmail" Grid.Row="4" Grid.Column="1" Height="30" Width="290" HorizontalAlignment="Left" MaxHeight="100"/>
+                            <Label Name="lblEndereco" Grid.Row="4" Grid.Column="2" Content="Endereço:" Height="30" Width="75" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtEndereco" Grid.Row="4" Grid.Column="3" Height="30" Width="290" HorizontalAlignment="Left" MaxHeight="100"/>
+                            <Border Grid.Row="5" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                            <Label Name="lblComplemento" Grid.Row="5" Grid.Column="0" Content="Complemento:" Height="30" Width="100" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtComplemento" Grid.Row="5" Grid.Column="1" Height="30" Width="290" HorizontalAlignment="Left" MaxHeight="100"/>
+                            <Label Name="lblBairro" Grid.Row="5" Grid.Column="2" Content="Bairro:" Height="30" Width="55" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtBairro" Grid.Row="5" Grid.Column="3" Height="30" Width="290" HorizontalAlignment="Left" MaxHeight="100"/>
+                            <Border Grid.Row="6" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                            <Label Name="lblCep" Grid.Row="6" Grid.Column="0" Content="CEP:" Height="30" Width="45" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtCEP" Grid.Row="6" Grid.Column="1" Height="30" Width="100" HorizontalAlignment="Left" MaxHeight="9"/>
+                            <Label Name="lblEstado" Grid.Row="6" Grid.Column="1" Content="Estado:" Height="30" Width="50" Margin="0,2,78,3" HorizontalAlignment="Right"></Label>
+                            <ComboBox Name="cmbEstado" Grid.Row="6" Grid.Column="1" Height="30" Width="60" Margin="229,2,0,3" HorizontalAlignment="Left" VerticalAlignment="Stretch"/>
+                            <Label Name="lblCidade" Grid.Row="6" Grid.Column="2" Content="Cidade:" Height="30" Width="60" HorizontalAlignment="Right"></Label>
+                            <ComboBox Name="cmbCidade" Grid.Row="6" Grid.Column="3" Height="30" Width="200" HorizontalAlignment="Left" VerticalAlignment="Stretch"/>
+                            <Border Grid.Row="7" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                            <Label Name="lblSite" Grid.Row="7" Grid.Column="0" Content="Site:" Height="30" Width="50" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtSite" Grid.Row="7" Grid.Column="1" Height="30" Width="290" HorizontalAlignment="Left" MaxHeight="100"/>
+                            <Label Name="lblObservacao" Grid.Row="7" Grid.Column="2" Content="Observacao:" Height="30" Width="90" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtObservacao" Grid.Row="7" Grid.Column="3" Height="80" Width="290" HorizontalAlignment="Left" VerticalAlignment="Stretch" MaxHeight="500" TextWrapping="WrapWithOverflow"/>
+                            <Border Grid.Row="8" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                            <Label Name="lblSubTitulo" Grid.Row="8" Grid.ColumnSpan="4" Height="32" HorizontalAlignment="Left" VerticalAlignment="Stretch" FontSize="12" FontWeight="SemiBold">
+                                Contatos
+                            </Label>
+                            <Border Grid.Row="9" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                            <Label Name="lblNomeCont1" Grid.Row="9" Grid.Column="0" Content="Nome:" Height="30" Width="55" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtNomeCont1" Grid.Row="9" Grid.Column="1" Height="30" Width="290" HorizontalAlignment="Left" MaxHeight="100"/>
+                            <Label Name="lblCargoCont1" Grid.Row="9" Grid.Column="2" Content="Cargo:" Height="30" Width="75" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtCargoCont1" Grid.Row="9" Grid.Column="3" Height="30" Width="290" HorizontalAlignment="Left" MaxHeight="100"/>
+                            <Border Grid.Row="10" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                            <Label Name="lblEmailCont1" Grid.Row="10" Grid.Column="0" Content="Email:" Height="30" Width="55" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtEmailCont1" Grid.Row="10" Grid.Column="1" Height="30" Width="290" HorizontalAlignment="Left" MaxHeight="100"/>
+                            <Label Name="lblTelefoneCont1" Grid.Row="10" Grid.Column="2" Content="DDD/Telefone:" Height="30" Width="95" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtDDDTelefoneCont1" Grid.Row="10" Grid.Column="3" Height="30" Width="30" HorizontalAlignment="Left"/>
+                            <Label Name="lblDivTelCont1" Grid.Row="10" Grid.Column="3" Width="20" Content="/" Margin="31,3,249,2"/>
+                            <TextBox Name="txtTelefoneCont1" Grid.Row="10" Grid.Column="3" Height="30" Width="120" Margin="50,3,130,2"/>
+                            <Border Grid.Row="11" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                            <Label Name="lblCelularCont1" Grid.Row="11" Grid.Column="0" Content="DDD/Celular:" Height="30" Width="105" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtDDDCelularCont1" Grid.Row="11" Grid.Column="1" Height="30" Width="30" HorizontalAlignment="Left"/>
+                            <Label Name="lblDivCelCont1" Grid.Row="11" Grid.Column="1" Height="30" Width="20" Content="/" Margin="31,3,249,2"/>
+                            <TextBox Name="txtCelularCont1" Grid.Row="11" Grid.Column="1" Height="30" Width="120" Margin="48,3,132,2"/>
+                            <Border Grid.Row="12" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                            <Label Name="lblNomeCont2" Grid.Row="12" Grid.Column="0" Content="Nome:" Height="30" Width="55" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtNomeCont2" Grid.Row="12" Grid.Column="1" Height="30" Width="290" HorizontalAlignment="Left" MaxHeight="100"/>
+                            <Label Name="lblCargoCont2" Grid.Row="12" Grid.Column="2" Content="Cargo:" Height="30" Width="75" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtCargoCont2" Grid.Row="12" Grid.Column="3" Height="30" Width="290" HorizontalAlignment="Left" MaxHeight="100"/>
+                            <Border Grid.Row="13" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                            <Label Name="lblEmailCont2" Grid.Row="13" Grid.Column="0" Content="Email:" Height="30" Width="55" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtEmailCont2" Grid.Row="13" Grid.Column="1" Height="30" Width="290" HorizontalAlignment="Left" MaxHeight="100"/>
+                            <Label Name="lblTelefoneCont2" Grid.Row="13" Grid.Column="2" Content="DDD/Telefone:" Height="30" Width="95" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtDDDTelefoneCont2" Grid.Row="13" Grid.Column="3" Height="30" Width="30" HorizontalAlignment="Left"/>
+                            <Label Name="lblDivTelCont2" Grid.Row="13" Grid.Column="3" Width="20" Content="/" Margin="31,3,249,2"/>
+                            <TextBox Name="txtTelefoneCont2" Grid.Row="13" Grid.Column="3" Height="30" Width="120" Margin="50,3,130,2"/>
+                            <Border Grid.Row="14" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                            <Label Name="lblCelularCont2" Grid.Row="14" Grid.Column="0" Content="DDD/Celular:" Height="30" Width="105" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtDDDCelularCont2" Grid.Row="14" Grid.Column="1" Height="30" Width="30" HorizontalAlignment="Left"/>
+                            <Label Name="lblDivCelCont2" Grid.Row="14" Grid.Column="1" Height="30" Width="20" Content="/" Margin="31,3,249,2"/>
+                            <TextBox Name="txtCelularCont2" Grid.Row="14" Grid.Column="1" Height="30" Width="120" Margin="48,3,132,2"/>
+                            <DockPanel Grid.Row="15" Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Button Name="incluir" Content="Incluir" Height="30" Width="60" HorizontalAlignment="Left" Margin="5" />
+                                <!--Click="incluir_Click"-->
+                                <Button Name="excluir" Content="Excluir" Height="30" Width="60" HorizontalAlignment="Left" Margin="5" />
+                                <!--Click="excluir_Click"-->
+                                <Button Name="atualizar" Content="Atualizar" Height="30" Width="60" HorizontalAlignment="Left" Margin="5" />
+                                <!--Click="atualizar_Click"-->
+                                <Button Name="cancelar" Content="Limpar" Height="30" Width="60" HorizontalAlignment="Left" Margin="5" />
+                                <!--Click="cancelar_Click"-->
+                            </DockPanel>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Name="tbiPesquisa" Header="Pesquisa">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="35"/>
+                                <!--Nome-->
+                                <RowDefinition Height="35"/>
+                                <!--Nome-->
+                                <RowDefinition Height="600"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="110"/>
+                                <ColumnDefinition Width="300"/>
+                                <ColumnDefinition Width="110"/>
+                                <ColumnDefinition Width="300"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Row="0" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+                            <Label Name="lblRazaoSocialPesq" Grid.Row="0" Grid.Column="0" Content="Razão Social:" Height="30" Width="90" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtRazaoSocialPesq" Grid.Row="0" Grid.Column="1" Height="30" TextWrapping="Wrap"  Width="290" HorizontalAlignment="Left" MaxLength="100"/>
+                            <Label Name="lblNomeFantasiaPesq" Grid.Row="0" Grid.Column="2" Content="Nome Fantasia:" Height="30" Width="105" HorizontalAlignment="Right"/>
+                            <TextBox Name="txtNomeFantasiaPesq" Grid.Row="0" Grid.Column="3" Height="30" Width="290" HorizontalAlignment="Left" MaxHeight="100"/>
+
+                            <DataGrid Name="dtgClientes" Grid.Row="1" Grid.ColumnSpan="4" AutoGenerateColumns="False" Height="590">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=Codigo}" Header="Codigo" Visibility="Hidden"/>
+                                    <DataGridTextColumn Binding="{Binding Path=Nome}" Header="Nome" Width="120" IsReadOnly="True" />
+                                    <DataGridTextColumn Binding="{Binding Path=DDD}" Header="DDD" Width="50" IsReadOnly="True" />
+                                    <DataGridTextColumn Binding="{Binding Path=Telefone}" Header="Telefone" Width="80" IsReadOnly="True" />
+                                    <DataGridTextColumn Binding="{Binding Path=DDDc}" Header="DDD" Width="50" IsReadOnly="True" />
+                                    <DataGridTextColumn Binding="{Binding Path=Celular}" Header="Celular" Width="80" IsReadOnly="True" />
+                                    <DataGridTextColumn Binding="{Binding Path=Email}" Header="Email" Width="250" IsReadOnly="True" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </m:Master.Content>
+    </m:Master>
+</Page>

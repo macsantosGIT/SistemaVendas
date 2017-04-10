@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="SistemaVendas.Page.UsrCliente"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="825">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="300"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="0" Grid.ColumnSpan="4" BorderThickness="0 0 0 1" BorderBrush="CadetBlue"></Border>
+        <Label Name="lblRazaoSocialPesq" Grid.Row="0" Grid.Column="0" Content="Razão Social:" Height="30" Width="90" HorizontalAlignment="Right"/>
+        <TextBox Name="txtRazaoSocialPesq" Grid.Row="0" Grid.Column="1" Height="30" TextWrapping="Wrap"  Width="290" HorizontalAlignment="Left" MaxLength="100" TextChanged="txtPesquisa_TextChanged"/>
+        <Label Name="lblNomeFantasiaPesq" Grid.Row="0" Grid.Column="2" Content="Nome Fantasia:" Height="30" Width="105" HorizontalAlignment="Right"/>
+        <TextBox Name="txtNomeFantasiaPesq" Grid.Row="0" Grid.Column="3" Height="30" Width="290" HorizontalAlignment="Left" MaxLength="100" TextChanged="txtPesquisa_TextChanged"/>
+
+        <DataGrid Name="dtgClientes" Grid.Row="1" Grid.ColumnSpan="4" AutoGenerateColumns="False" Height="590" SelectedCellsChanged="dtgClientes_SelectedCellsChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=ClienteId}" Header="Codigo" Visibility="Hidden"/>
+                <DataGridTextColumn Binding="{Binding Path=ClienteNome}" Header="Razão Social" Width="120" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=ClienteNomeFantasia}" Header="Nome Fantasia" Width="120" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=ClienteDddTel}" Header="DDD" Width="50" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=ClienteTel}" Header="Telefone" Width="80" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=ClienteDddCel}" Header="DDD" Width="50" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=ClienteCel}" Header="Celular" Width="80" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=ClienteEmail}" Header="Email" Width="250" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
