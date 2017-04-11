@@ -59,6 +59,6 @@
             <MenuItem Name="menuSair" Header="Sair" Click="menuSair_Click"></MenuItem>            
         </Menu>
 
-        <Frame ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" NavigationUIVisibility="Hidden"  Name="frmContent" Grid.Column="0" Grid.Row="2"/> 
+        <Frame ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" NavigationUIVisibility="Hidden"  Name="frmContent" Grid.Column="0" Grid.Row="2"/> 
     </Grid>
 </Window>
